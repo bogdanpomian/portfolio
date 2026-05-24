@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXTwitter,
@@ -8,6 +9,8 @@ import {
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const skills = [
     {
       title: "Design & Development",
@@ -91,17 +94,17 @@ function App() {
     {
       step: "01",
       title: "Research phase",
-      text: "Clarify the goal, audience, message, content, and visual direction.",
+      text: "Define the project goal, audience, message, content needs, and creative direction.",
     },
     {
       step: "02",
-      title: "Design & Development phase",
-      text: "Create layouts, visual systems, responsive sections, and front-end structure.",
+      title: "Implementation phase",
+      text: "Turn the visual direction into responsive layouts, structured sections, and polished front-end details.",
     },
     {
       step: "03",
       title: "Optimization phase",
-      text: "Improve usability, responsiveness, polish, SEO basics, and final delivery.",
+      text: "Refine usability, responsiveness, visual polish, SEO structure, and final delivery details.",
     },
   ];
 
@@ -126,25 +129,26 @@ function App() {
   ];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#17163f] text-white">
+    <main className="min-h-screen overflow-x-hidden bg-[#17163f] text-white">
       {/* Background decoration */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-[-10rem] top-[-10rem] h-[32rem] w-[32rem] rounded-full bg-[#7c73ff]/20 blur-3xl"></div>
-        <div className="absolute right-[-12rem] top-32 h-[36rem] w-[36rem] rounded-full bg-[#b7b0ff]/20 blur-3xl"></div>
-        <div className="absolute bottom-[-14rem] left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[#6d63ff]/20 blur-3xl"></div>
+        <div className="absolute -left-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-[#7c73ff]/20 blur-3xl"></div>
+        <div className="absolute -right-48 top-32 h-[36rem] w-[36rem] rounded-full bg-[#b7b0ff]/20 blur-3xl"></div>
+        <div className="absolute -bottom-56 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[#6d63ff]/20 blur-3xl"></div>
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#17163f]/85 backdrop-blur-xl">
+      <header className="relative border-b border-white/10 bg-[#111033]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#home" className="flex items-center">
             <img
               src="/logo.png"
               alt="Bogdan Pomian logo"
-              className="h-auto w-[135px]"
+              className="h-auto w-32"
             />
           </a>
 
+          {/* Desktop navigation */}
           <nav className="hidden gap-8 text-xs font-bold uppercase tracking-[0.3em] text-white/65 md:flex">
             <a href="#home" className="transition hover:text-[#a7a0ff]">
               Home
@@ -158,64 +162,158 @@ function App() {
             <a href="#services" className="transition hover:text-[#a7a0ff]">
               Services
             </a>
+            <a href="#workflow" className="transition hover:text-[#a7a0ff]">
+              Workflow
+            </a>
             <a href="#contact" className="transition hover:text-[#a7a0ff]">
               Contact
             </a>
           </nav>
 
+          {/* Desktop CTA */}
           <a
             href="#contact"
-            className="rounded-full border border-white/30 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+            className="hidden rounded-full border border-white/30 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] transition duration-300 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f] md:inline-flex"
           >
             Let’s Talk
           </a>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[#a7a0ff] transition hover:bg-white/10 hover:text-white md:hidden"
+          >
+            <span className="relative flex h-4 w-5 flex-col justify-between">
+              <span
+                className={`h-0.5 w-full rounded-full bg-current transition ${
+                  isMenuOpen ? "translate-y-1.5 rotate-45" : ""
+                }`}
+              ></span>
+              <span
+                className={`h-0.5 w-full rounded-full bg-current transition ${
+                  isMenuOpen ? "opacity-0" : ""
+                }`}
+              ></span>
+              <span
+                className={`h-0.5 w-full rounded-full bg-current transition ${
+                  isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""
+                }`}
+              ></span>
+            </span>
+          </button>
         </div>
+
+        {/* Mobile navigation */}
+        {isMenuOpen && (
+          <nav className="border-t border-white/10 bg-[#111033] px-6 py-5 md:hidden">
+            <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm font-bold uppercase tracking-[0.25em] text-white/70">
+              <a
+                href="#home"
+                onClick={() => setIsMenuOpen(false)}
+                className="transition hover:text-[#a7a0ff]"
+              >
+                Home
+              </a>
+
+              <a
+                href="#about"
+                onClick={() => setIsMenuOpen(false)}
+                className="transition hover:text-[#a7a0ff]"
+              >
+                About
+              </a>
+
+              <a
+                href="#skills"
+                onClick={() => setIsMenuOpen(false)}
+                className="transition hover:text-[#a7a0ff]"
+              >
+                Skills
+              </a>
+
+              <a
+                href="#services"
+                onClick={() => setIsMenuOpen(false)}
+                className="transition hover:text-[#a7a0ff]"
+              >
+                Services
+              </a>
+
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="transition hover:text-[#a7a0ff]"
+              >
+                Contact
+              </a>
+
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="relative -left-1 mt-2 inline-flex w-fit rounded-full border border-[#a7a0ff]/50 bg-[#a7a0ff] px-4 py-3 text-xs font-bold text-[#17163f] transition duration-300 hover:bg-white"
+              >
+                Let’s Talk
+              </a>
+            </div>
+          </nav>
+        )}
       </header>
 
       {/* Hero */}
       <section
         id="home"
-        className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-center justify-start px-6 pb-24 pt-20 text-center"
+        className="relative mx-auto flex max-w-6xl flex-col items-center justify-center px-6 py-24 text-center md:py-32 lg:py-36"
       >
         <div className="absolute left-6 top-16 hidden h-24 w-24 rounded-full border-[18px] border-[#7c73ff] md:block lg:left-10 lg:top-20"></div>
 
         <div className="absolute right-6 top-16 hidden h-28 w-28 rounded-full bg-[#b7b0ff] opacity-80 md:block lg:right-10 lg:top-20"></div>
 
-        <div className="absolute bottom-16 left-6 hidden h-36 w-36 rounded-full border-[20px] border-[#6d63ff] md:block lg:bottom-20 lg:left-10"></div>
+        <div className="absolute bottom-16 left-8 hidden h-36 w-44 bg-[#b7b0ff] opacity-80 [clip-path:polygon(50%_0%,0%_100%,100%_100%)] md:block lg:bottom-20 lg:left-16"></div>
 
-        <div className="absolute bottom-16 right-6 hidden h-36 w-44 bg-[#b7b0ff] opacity-80 [clip-path:polygon(50%_0%,0%_100%,100%_100%)] md:block lg:bottom-20 lg:right-10"></div>
+        <div className="absolute bottom-20 right-6 hidden h-32 w-32 rotate-12 rounded-4xl bg-[#6d63ff] opacity-85 shadow-2xl shadow-[#6d63ff]/30 md:block lg:right-10"></div>
 
         <div className="absolute left-1/2 top-28 -z-10 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[#7c73ff]/25 blur-3xl"></div>
 
-        <p className="mb-6 rounded-full border border-[#a7a0ff]/40 bg-white/5 px-5 py-2 text-sm text-[#d8d5ff] shadow-2xl shadow-[#7c73ff]/20">
-          ✦ Web Design · Front-End Development · Graphic Design
-        </p>
+        <div className="max-w-5xl">
+          {/* Mobile headline */}
+          <h1 className="text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl md:hidden">
+            Building digital experiences.
+          </h1>
 
-        <h1 className="max-w-4xl text-6xl font-black leading-none tracking-tight md:text-8xl">
-          Digital interfaces with color, clarity, and structure.
-        </h1>
+          {/* Desktop / tablet headline: 768px and up */}
+          <h1 className="hidden text-6xl font-black leading-none tracking-tight md:block md:text-8xl">
+            Building
+            <br />
+            custom-made
+            <br />
+            digital experiences.
+          </h1>
+        </div>
 
         <h2 className="mt-6 text-2xl font-semibold text-[#d8d5ff] md:text-3xl">
-          Bogdan Pomian — Web Designer & Front-End Developer
+          Web Designer & Front-End Developer
         </h2>
 
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-white/60">
-          I create responsive websites, polished interfaces, visual assets, and
-          front-end experiences that help ideas look professional, memorable,
-          and easy to use.
+          I create responsive websites and visual assets that help great ideas
+          look
+          <br /> professional, memorable, and easy to use.
         </p>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+        <div className="mt-10 flex flex-row items-center justify-center gap-3">
           <a
             href="#services"
-            className="rounded-full bg-[#7c73ff] px-8 py-4 font-bold text-white shadow-2xl shadow-[#7c73ff]/30 transition hover:-translate-y-1 hover:bg-[#918aff]"
+            className="rounded-full bg-[#7c73ff] px-5 py-4 text-sm font-bold text-white shadow-2xl shadow-[#7c73ff]/30 transition duration-300 hover:-translate-y-1 hover:bg-[#918aff] sm:px-8 sm:text-base"
           >
             View Services
           </a>
 
           <a
             href="#about"
-            className="rounded-full border border-[#a7a0ff]/40 bg-white/5 px-8 py-4 font-bold text-white transition hover:-translate-y-1 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+            className="rounded-full border border-[#a7a0ff]/40 bg-white/5 px-5 py-4 text-sm font-bold text-white transition duration-300 hover:-translate-y-1 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f] sm:px-8 sm:text-base"
           >
             Explore
           </a>
@@ -238,23 +336,24 @@ function App() {
 
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-white/65">
             <p>
-              Hello! My name is Bogdan Pomian and I am a web designer and
-              front-end focused developer based in Timișoara, Romania.
+              Hello! I’m Bogdan Pomian, a web designer and front-end focused
+              developer based in Timișoara, Romania.
             </p>
 
             <p>
-              I design polished mock-ups, develop responsive websites, and shape
-              customized web portals for clients across Europe, North America,
-              APAC, LATAM, and MENA, keeping each solution aligned with business
-              goals and user needs.
+              <p>
+                I design polished mockups and build responsive websites and
+                customized web portals for clients across international markets,
+                including Europe, North America, Asia-Pacific, Latin America,
+                and the Middle East.
+              </p>
             </p>
 
             <p>
-              I use a mix of design, front-end, CMS, and SEO tools to move
-              projects from early visual ideas to polished, maintainable
-              websites. This helps me support both the creative side of a
-              project and the practical details needed to make it work well
-              across devices.
+              I combine design, front-end development, and SEO to move projects
+              from early visual ideas to polished, maintainable websites. This
+              helps me support both the creative direction and the practical
+              details needed to make a website work well across devices.
             </p>
           </div>
         </div>
@@ -280,9 +379,9 @@ function App() {
             {skills.map((skill) => (
               <article
                 key={skill.title}
-                className="group rounded-[2rem] border border-white/10 bg-[#201f55]/80 p-8 shadow-2xl shadow-black/20 transition hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
+                className="group rounded-4xl border border-white/10 bg-[#201f55]/80 p-8 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
               >
-                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a7a0ff] text-xl font-black text-[#17163f] shadow-xl shadow-[#7c73ff]/30 transition group-hover:rotate-6 group-hover:bg-white">
+                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a7a0ff] text-xl font-black text-[#17163f] shadow-xl shadow-[#7c73ff]/30 transition duration-300 group-hover:rotate-6 group-hover:bg-white">
                   {skill.icon}
                 </div>
 
@@ -319,9 +418,9 @@ function App() {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="group rounded-[2rem] border border-white/10 bg-[#201f55]/80 p-8 shadow-2xl shadow-black/20 transition hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
+                className="group rounded-4xl border border-white/10 bg-[#201f55]/80 p-8 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
               >
-                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a7a0ff] text-xl font-black text-[#17163f] shadow-xl shadow-[#7c73ff]/30 transition group-hover:rotate-6 group-hover:bg-white">
+                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a7a0ff] text-xl font-black text-[#17163f] shadow-xl shadow-[#7c73ff]/30 transition duration-300 group-hover:rotate-6 group-hover:bg-white">
                   {service.icon}
                 </div>
 
@@ -342,7 +441,11 @@ function App() {
       </section>
 
       {/* Workflow */}
-      <section className="border-y border-white/10 bg-[#111033] py-24">
+      <section
+        id="workflow"
+        className="border-y border-white/10 bg-[#111033] py-24"
+      >
+        {" "}
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-sm font-bold uppercase tracking-[0.35em] text-[#a7a0ff]">
             Workflow
@@ -352,9 +455,9 @@ function App() {
             {workflow.map((item) => (
               <div
                 key={item.title}
-                className="group rounded-[2rem] border border-white/10 bg-[#201f55]/80 p-8 shadow-2xl shadow-black/20 transition hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
+                className="group rounded-4xl border border-white/10 bg-[#201f55]/80 p-8 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
               >
-                <p className="text-[#a7a0ff] transition group-hover:text-white">
+                <p className="text-[#a7a0ff] transition duration-300 group-hover:text-white">
                   {item.step}
                 </p>
 
@@ -383,7 +486,7 @@ function App() {
             {tools.map((tool) => (
               <span
                 key={tool}
-                className="whitespace-nowrap rounded-full border border-white/10 bg-[#201f55] px-4 py-2 text-center text-sm text-[#d8d5ff] transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+                className="whitespace-nowrap rounded-full border border-white/10 bg-[#201f55] px-4 py-2 text-center text-sm text-[#d8d5ff] transition duration-300 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
               >
                 {tool}
               </span>
@@ -395,8 +498,8 @@ function App() {
       {/* Contact */}
       <section id="contact" className="px-6 py-24">
         <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#201f55] p-8 shadow-2xl shadow-black/30 md:p-12">
-          <div className="absolute right-[-6rem] top-[-6rem] h-72 w-72 rounded-full bg-[#a7a0ff]/30 blur-3xl"></div>
-          <div className="absolute bottom-[-8rem] left-[-8rem] h-72 w-72 rounded-full bg-[#7c73ff]/30 blur-3xl"></div>
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#a7a0ff]/30 blur-3xl"></div>
+          <div className="absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-[#7c73ff]/30 blur-3xl"></div>
 
           <div className="relative grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <div>
@@ -417,25 +520,25 @@ function App() {
             <div className="mx-auto flex w-full max-w-md flex-col gap-4 md:mx-0 md:ml-auto">
               <a
                 href="mailto:pomian.bogdan@gmail.com"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-[#201f55]/80 px-6 py-4 font-bold text-white shadow-2xl shadow-black/20 transition hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
+                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-[#201f55]/80 px-6 py-4 font-bold text-white shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
               >
                 <span>Send me an email!</span>
 
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  className="h-5 w-5 text-[#a7a0ff] transition group-hover:rotate-6 group-hover:text-white"
+                  className="h-5 w-5 text-[#a7a0ff] transition duration-300 group-hover:rotate-6 group-hover:text-white"
                 />
               </a>
 
               <a
                 href="tel:+40751250747"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-[#201f55]/80 px-6 py-4 font-bold text-white shadow-2xl shadow-black/20 transition hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
+                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-[#201f55]/80 px-6 py-4 font-bold text-white shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]"
               >
-                <span>Let's talk !</span>
+                <span>Let's talk!</span>
 
                 <FontAwesomeIcon
                   icon={faPhone}
-                  className="h-5 w-5 text-[#a7a0ff] transition group-hover:rotate-6 group-hover:text-white"
+                  className="h-5 w-5 text-[#a7a0ff] transition duration-300 group-hover:rotate-6 group-hover:text-white"
                 />
               </a>
             </div>
@@ -444,7 +547,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 py-8">
+      <footer className="border-t border-white/10 bg-[#111033]/90 py-8 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 text-center text-sm text-white/45">
           <p>© 2026 Bogdan Pomian. All rights reserved.</p>
 
@@ -454,34 +557,37 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition duration-300 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
             >
               <FontAwesomeIcon icon={faLinkedinIn} className="h-4 w-4" />
             </a>
+
             <a
               href="https://github.com/bogdanpomian"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition duration-300 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
             >
               <FontAwesomeIcon icon={faGithub} className="h-4 w-4" />
             </a>
+
             <a
               href="https://www.instagram.com/bogdan_pomian/"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition duration-300 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
             >
               <FontAwesomeIcon icon={faInstagram} className="h-4 w-4" />
             </a>
+
             <a
               href="https://x.com/PomianBogdan"
               target="_blank"
               rel="noreferrer"
               aria-label="Twitter / X"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition duration-300 hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
             >
               <FontAwesomeIcon icon={faXTwitter} className="h-4 w-4" />
             </a>
