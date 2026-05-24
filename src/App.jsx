@@ -3,6 +3,7 @@ import {
   faXTwitter,
   faLinkedinIn,
   faGithub,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
@@ -449,17 +450,7 @@ function App() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://x.com/PomianBogdan"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Twitter / X"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
-            >
-              <FontAwesomeIcon icon={faXTwitter} className="h-4 w-4" />
-            </a>
-
-            <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/bogdan-p-b16bb3180/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
@@ -467,15 +458,32 @@ function App() {
             >
               <FontAwesomeIcon icon={faLinkedinIn} className="h-4 w-4" />
             </a>
-
             <a
-              href="https://github.com"
+              href="https://github.com/bogdanpomian"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
               className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
             >
               <FontAwesomeIcon icon={faGithub} className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.instagram.com/bogdan_pomian/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+            >
+              <FontAwesomeIcon icon={faInstagram} className="h-4 w-4" />
+            </a>
+            <a
+              href="https://x.com/PomianBogdan"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Twitter / X"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/55 transition hover:border-[#a7a0ff] hover:bg-[#a7a0ff] hover:text-[#17163f]"
+            >
+              <FontAwesomeIcon icon={faXTwitter} className="h-4 w-4" />
             </a>
           </div>
         </div>
