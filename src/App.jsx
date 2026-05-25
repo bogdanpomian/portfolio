@@ -243,6 +243,14 @@ function App() {
               </a>
 
               <a
+                href="#workflow"
+                onClick={() => setIsMenuOpen(false)}
+                className="transition hover:text-[#a7a0ff]"
+              >
+                Workflow
+              </a>
+
+              <a
                 href="#contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="transition hover:text-[#a7a0ff]"
@@ -322,7 +330,7 @@ function App() {
 
       {/* About */}
       <section id="about" className="border-t border-white/10 py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[0.8fr_1.2fr] md:items-start">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-3 md:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.35em] text-[#a7a0ff]">
               About
@@ -336,17 +344,14 @@ function App() {
 
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-white/65">
             <p>
-              Hello! I’m Bogdan Pomian, a web designer and front-end focused
-              developer based in Timișoara, Romania.
+              <span className="font-bold text-white">Hello! </span>I’m Bogdan
+              Pomian, a web designer and front-end focused developer based in
+              Timișoara, Romania.
             </p>
 
             <p>
-              <p>
-                I design polished mockups and build responsive websites and
-                customized web portals for clients across international markets,
-                including Europe, North America, Asia-Pacific, Latin America,
-                and the Middle East.
-              </p>
+              I design polished mockups and build responsive websites and
+              customized web portals for clients across international markets.
             </p>
 
             <p>
@@ -355,6 +360,17 @@ function App() {
               helps me support both the creative direction and the practical
               details needed to make a website work well across devices.
             </p>
+          </div>
+
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-[#201f55]/80 shadow-2xl shadow-black/20">
+            <img
+              src="src/assets/fookenguy.png"
+              alt="Illustrated portrait in a purple canyon scene"
+              className="aspect-5/5 h-full w-full object-cover object-right"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[#111033]/15"></div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#111033]/80 via-transparent to-transparent"></div>
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"></div>
           </div>
         </div>
       </section>
@@ -445,7 +461,6 @@ function App() {
         id="workflow"
         className="border-y border-white/10 bg-[#111033] py-24"
       >
-        {" "}
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-sm font-bold uppercase tracking-[0.35em] text-[#a7a0ff]">
             Workflow
