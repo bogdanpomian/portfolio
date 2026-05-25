@@ -16,7 +16,7 @@ function App() {
     {
       title: "Design & Development",
       icon: "✦",
-      text: "I design responsive interfaces and build structured front-end layouts using HTML, CSS, Tailwind, Bootstrap, JavaScript, and jQuery.",
+      text: "I design responsive interfaces and build structured front-end layouts using HTML, CSS, Bootstrap,Tailwind, JavaScript, and jQuery.",
     },
     {
       title: "Visual Communication",
@@ -36,9 +36,9 @@ function App() {
       icon: "▧",
       items: [
         "Responsive design",
-        "UI/UX layouts",
-        "Landing pages",
-        "Design refresh",
+        "Website redesign",
+        "UI/UX design",
+        "Custom email templates design",
       ],
     },
     {
@@ -46,7 +46,8 @@ function App() {
       icon: "{ }",
       items: [
         "HTML, CSS/SCSS",
-        "Tailwind / Bootstrap",
+        "Bootstrap",
+        "Tailwind CSS",
         "JavaScript / jQuery enhancements",
       ],
     },
@@ -57,6 +58,7 @@ function App() {
         "Website maintenance",
         "Content updates",
         "Performance optimization",
+        "Wordpress maintenance",
       ],
     },
     {
@@ -64,9 +66,9 @@ function App() {
       icon: "◎",
       items: [
         "On-page SEO",
-        "Content structure",
-        "Analytics setup",
-        "Search Console support",
+        "SERP Analysis & Competitor Research",
+        "Google Analytics",
+        "Google Search Console",
       ],
     },
     {
@@ -74,19 +76,19 @@ function App() {
       icon: "✺",
       items: [
         "Logo design",
+        "Social media graphics",
         "Business cards",
         "Flyers & brochures",
-        "Social media graphics",
       ],
     },
     {
-      title: "Creative Content",
+      title: "E-commerce Solutions",
       icon: "✧",
       items: [
-        "Digital assets",
-        "Campaign graphics",
-        "Image editing",
-        "Brand visual support",
+        "Custom WooCommerce setup",
+        "Custom PrestaShop setup",
+        "Payment Gateways integration",
+        "Product Page UX/UI Optimization",
       ],
     },
   ];
@@ -122,8 +124,14 @@ function App() {
     "Photoshop",
     "Adobe Illustrator",
     "WordPress",
+    "Elementor",
+    "WPBakery ",
     "PrestaShop",
     "Liferay",
+    "AWS 3",
+    "Jenkins",
+    "Github",
+    "Bitbucket",
     "SEO",
     "Google Analytics",
     "Search Console",
@@ -133,9 +141,9 @@ function App() {
     <main className="min-h-screen overflow-x-hidden bg-[#17163f] text-white">
       {/* Background decoration */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -left-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-[#7c73ff]/20 blur-3xl"></div>
-        <div className="absolute -right-48 top-32 h-[36rem] w-[36rem] rounded-full bg-[#b7b0ff]/20 blur-3xl"></div>
-        <div className="absolute -bottom-56 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[#6d63ff]/20 blur-3xl"></div>
+        <div className="absolute -left-40 -top-40 h-128] w-lg rounded-full bg-[#7c73ff]/20 blur-3xl"></div>
+        <div className="absolute -right-48 top-32 h-144 w-xl rounded-full bg-[#b7b0ff]/20 blur-3xl"></div>
+        <div className="absolute -bottom-56 left-1/2 h-136 w-136 -translate-x-1/2 rounded-full bg-[#6d63ff]/20 blur-3xl"></div>
       </div>
 
       {/* Header */}
@@ -276,7 +284,7 @@ function App() {
         id="home"
         className="relative mx-auto flex max-w-6xl flex-col items-center justify-center px-6 py-24 text-center md:py-32 lg:py-36"
       >
-        <div className="absolute left-6 top-16 hidden h-24 w-24 rounded-full border-[18px] border-[#7c73ff] md:block lg:left-10 lg:top-20"></div>
+        <div className="absolute left-6 top-16 hidden h-24 w-24 rounded-full border-18px border-[#7c73ff] md:block lg:left-10 lg:top-20"></div>
 
         <div className="absolute right-6 top-16 hidden h-28 w-28 rounded-full bg-[#b7b0ff] opacity-80 md:block lg:right-10 lg:top-20"></div>
 
@@ -284,7 +292,7 @@ function App() {
 
         <div className="absolute bottom-20 right-6 hidden h-32 w-32 rotate-12 rounded-4xl bg-[#6d63ff] opacity-85 shadow-2xl shadow-[#6d63ff]/30 md:block lg:right-10"></div>
 
-        <div className="absolute left-1/2 top-28 -z-10 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[#7c73ff]/25 blur-3xl"></div>
+        <div className="absolute left-1/2 top-28 -z-10 h-122 w-md -translate-x-1/2 rounded-full bg-[#7c73ff]/25 blur-3xl"></div>
 
         <div className="max-w-5xl">
           {/* Mobile headline */}
