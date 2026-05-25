@@ -7,6 +7,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import fookenGuy from "./assets/fookenguy.png";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -364,9 +365,9 @@ function App() {
 
           <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-[#201f55]/80 shadow-2xl shadow-black/20">
             <img
-              src="src/assets/fookenguy.png"
+              src={fookenGuy}
               alt="Illustrated portrait in a purple canyon scene"
-              className="aspect-5/5 h-full w-full object-cover object-right"
+              className="aspect-square h-full w-full object-cover object-right"
             />
             <div className="pointer-events-none absolute inset-0 bg-[#111033]/15"></div>
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#111033]/80 via-transparent to-transparent"></div>
