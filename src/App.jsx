@@ -363,11 +363,11 @@ function App() {
             </p>
           </div>
 
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-[#201f55]/80 shadow-2xl shadow-black/20">
+          <div className="group relative flex h-full w-full items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-[#201f55]/80 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-2 hover:border-[#a7a0ff]/70 hover:bg-[#28266a]">
             <img
               src={fookenGuy}
               alt="Illustrated portrait in a purple canyon scene"
-              className="aspect-square h-full w-full object-cover object-right"
+              className="aspect-square h-full w-full object-cover object-right transition duration-300 group-hover:scale-105"
             />
             <div className="pointer-events-none absolute inset-0 bg-[#111033]/15"></div>
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#111033]/80 via-transparent to-transparent"></div>
